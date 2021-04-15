@@ -1,7 +1,5 @@
 package com.bitacademy.myportal.repository;
 
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -20,26 +18,22 @@ public class GuestbookDaoImpl implements GuestbookDao {
 	
 	@Override
 	public List<GuestbookVo> selectAll() {
-		// 가상 데이터
-		//	TODO: 실제 DB와 연결
-		List<GuestbookVo> list = new ArrayList<>();
-		// Long no, String name, String password, String content, Date regDate
-		list.add(new GuestbookVo(1L, "홍길동", "1234", "왔다 가요", new Date()));
-		list.add(new GuestbookVo(2L, "장길산", "pass", "저두요", new Date()));
-		list.add(new GuestbookVo(3L, "전우치", "test", "반갑습니다", new Date()));
+		//	TODO: 예외 전환 처리
+		List<GuestbookVo> list = sqlSession.selectList("guestbook.selectAll");
+		System.out.println("방명록:" + list);
 		return list;
 	}
 
 	@Override
 	public int insert(GuestbookVo vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		int insertedCount = sqlSession.insert("guestbook.insert", vo);
+		return insertedCount;
 	}
 
 	@Override
 	public int delete(GuestbookVo vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		int deletedCount = sqlSession.delete("guestbook.delete", vo);
+		return deletedCount;
 	}
 
 }

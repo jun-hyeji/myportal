@@ -8,5 +8,4 @@ public interface GuestbookService {
 	public List<GuestbookVo> getList();
 	public boolean writeMessage(GuestbookVo vo);
 	public boolean deleteMessage(GuestbookVo vo);
-	
 }
