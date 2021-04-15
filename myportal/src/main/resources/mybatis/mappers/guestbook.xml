@@ -7,7 +7,7 @@
 	<!-- guestbook.selectAll로 호출
 		결과 데이터는 GuestbookVo로 반환 -->
 	<select id="selectAll" 
-		resultType="com.bitacademy.myportal.vo.GuestbookVo">
+		resultType="guestbookVo">
 	<![CDATA[
 	SELECT no, name, password, content, regdate as regDate
 	FROM guestbook
