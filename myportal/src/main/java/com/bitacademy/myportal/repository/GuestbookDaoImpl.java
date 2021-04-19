@@ -35,5 +35,7 @@ public class GuestbookDaoImpl implements GuestbookDao {
 		int deletedCount = sqlSession.delete("guestbook.delete", vo);
 		return deletedCount;
 	}
+	
+	E
 
 }
